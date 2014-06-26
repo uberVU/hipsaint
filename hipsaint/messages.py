@@ -33,7 +33,8 @@ class HipchatMessage(object):
     def deliver_payload(self, **kwargs):
         """
         Makes HTTP GET request to HipChat containing the message from nagios
-        according to API Documentation https://www.hipchat.com/docs/api/method/rooms/message
+        according to API Documentation
+        (https://www.hipchat.com/docs/api/method/rooms/message)
         """
         message_body = self.render_message()
         message = {'room_id': self.room_id,
@@ -62,10 +63,10 @@ class HipchatMessage(object):
                 'hostaddress': hostaddress, 'state': state, 'hostoutput': hostoutput}
 
     def get_service_context(self):
-        servicedesc, hostalias, timestamp, ntype, hostaddress, state, serviceoutput = self.inputs_list
+        servicedesc, hostalias, timestamp, ntype, hostaddress, state, serviceoutput, graphite = self.inputs_list
         return {'servicedesc': servicedesc, 'hostalias': hostalias, 'timestamp': timestamp,
                 'ntype': ntype, 'hostaddress': hostaddress, 'state': state,
-                'serviceoutput': serviceoutput}
+                'serviceoutput': serviceoutput, 'graphite' : graphite}
 
     def render_message(self):
         """

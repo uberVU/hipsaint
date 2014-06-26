@@ -18,8 +18,8 @@ service_template = """
 <strong>Type:</strong> {ntype}<br/>
 <strong>Host:</strong> {hostalias} (<a href="{hostaddress}">{hostaddress}</a>)<br/>
 <strong>State:</strong> {state}<br/>
-<strong>Info:</strong>
-<pre>{serviceoutput}</pre>
+<strong>Graphite:</strong> <a href="{graphite}">{graphite}</a><br/>
+<strong>Info:</strong> {serviceoutput}
 """
 
 service_short_template = "[{ntype}] {hostalias} {servicedesc}: {serviceoutput}"
